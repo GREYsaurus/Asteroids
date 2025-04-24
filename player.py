@@ -40,6 +40,8 @@ class Player(CircleShape):
             self.shoot_timer -= dt
             self.shoot_timer = max(self.shoot_timer, 0)
         keys = pygame.key.get_pressed()
+        
+        # WASD controls
         if keys[pygame.K_a]:
             self.rotate(-dt)
         if keys[pygame.K_d]:
@@ -48,5 +50,16 @@ class Player(CircleShape):
             self.move(dt)
         if keys[pygame.K_s]:
             self.move(-dt)
+        
+        # Arrow key controls
+        if keys[pygame.K_LEFT]:
+            self.rotate(-dt)
+        if keys[pygame.K_RIGHT]:
+            self.rotate(dt)
+        if keys[pygame.K_UP]:
+            self.move(dt)
+        if keys[pygame.K_DOWN]:
+            self.move(-dt)
+        
         if keys[pygame.K_SPACE]:
             self.shoot()
